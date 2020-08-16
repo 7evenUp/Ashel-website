@@ -8,15 +8,6 @@ const resolvers = {
       return 'AddPostMutationResponse'
     }
   },
-  Query: {
-    admin: () => ({
-      login: 'Artyom',
-      password: '123'
-    })
-  },
-  Mutation: {
-    
-  },
   Date: new GraphQLScalarType({
     name: 'Date',
     description: 'Date custom scalar type',
@@ -32,7 +23,7 @@ const resolvers = {
       }
       return null;
     },
-  }),
+  })
 }
 
 module.exports = resolvers

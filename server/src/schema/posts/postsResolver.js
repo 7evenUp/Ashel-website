@@ -10,17 +10,15 @@ const postsResolver = {
   },
   Mutation: {
     addPost: (parent, args, context, info) => {
+      const { id, heading, text, photoUrl } = args
       const newPost = {
-        id: args.id,
-        heading: args.heading,
-        text: args.text,
+        id,
+        heading,
+        text,
         created: new Date(),
-        photoUrl: args.photoUrl
+        photoUrl
       }
-      // console.log('NEW POST', newPost)
-      context.db.collection('posts').insertOne(newPost).then(data => {
-        // console.log(data)
-      })
+      context.db.collection('posts').insertOne(newPost).then(data => data)
       return {
         code: '200',
         success: true,
