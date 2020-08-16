@@ -12,29 +12,10 @@ const resolvers = {
     admin: () => ({
       login: 'Artyom',
       password: '123'
-    }),
-    posts: (parent, args, context) => (
-      context.db.collection('posts').findOne().then(data => {
-        console.log('Im here')
-        console.log(data)
-        return data.a
-      })
-    )
+    })
   },
   Mutation: {
-    post: (parent, args, context) => {
-      const newPost = {
-        id: args.id,
-        heading: args.heading,
-        text: args.text,
-        photoUrl: args.photoUrl
-      }
-      console.log('NEW POST', newPost)
-      context.db.collection('posts').insertOne(newPost).then(data => {
-        console.log(data)
-      })
-      return newPost
-    }
+    
   },
   Date: new GraphQLScalarType({
     name: 'Date',

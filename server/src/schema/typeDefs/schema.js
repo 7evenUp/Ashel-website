@@ -13,7 +13,7 @@ const typeDefs = gql`
     id: ID!
     heading: String!
     text: String!
-    created: Date
+    created: Date!
     updated: Date
     photoUrl: String!
   }
@@ -38,7 +38,12 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    post(id: ID, heading: String, text: String, photoUrl: String): Post!
+    addPost(
+      id: ID,
+      heading: String,
+      text: String,
+      photoUrl: String
+    ): AddPostMutationResponse!
   }
 `
 
