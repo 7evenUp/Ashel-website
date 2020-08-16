@@ -1,6 +1,6 @@
-### Это репозиторий моего веб-сайта
+# Это репозиторий моего веб-сайта
 
-## Мой стек на
+### Мой стек на
  - Backend (Apollo-server, graphql)
  - Frontend (Apollo-client, react, typescript)
  - В качестве базы данных (MongoDB)
