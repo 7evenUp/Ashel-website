@@ -11,7 +11,7 @@ const postsTypeDefs = gql`
     photoUrl: String!
   }
 
-  "Return value for inserting a Post"
+  "Return value of inserted Post"
   type AddPostMutationResponse implements MutationResponse {
     code: String!
     success: Boolean!
