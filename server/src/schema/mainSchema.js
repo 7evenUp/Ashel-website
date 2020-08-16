@@ -1,4 +1,5 @@
 const { gql } = require('apollo-server')
+const { postsQueryType, postsMutationType } = require('./posts/postsSchema')
 
 const typeDefs = gql`
   scalar Date
@@ -10,17 +11,11 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addPost(
-      id: ID,
-      heading: String,
-      text: String,
-      photoUrl: String
-    ): AddPostMutationResponse!
+    ${postsMutationType}
   }
 
   type Query {
-    posts: [Post!]!
-    post(id: ID): Post!
+    ${postsQueryType}
   }
 `
 

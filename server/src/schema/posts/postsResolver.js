@@ -1,16 +1,10 @@
 const postsResolver = {
   Query: {
-    posts: (parent, args, context) => (
-      context.db.collection('posts').findOne().then(data => {
-        console.log('Im here')
-        console.log(data)
-        return data.a
-      })
-    )
+    post: async (_, { id }, context) => await context.db.collection('posts').findOne({id}),
+    posts: (_, __, context) => context.db.collection('posts').find().toArray()
   },
   Mutation: {
-    addPost: (parent, args, context, info) => {
-      const { id, heading, text, photoUrl } = args
+    addPost: (_, { id, heading, text, photoUrl }, context) => {
       const newPost = {
         id,
         heading,

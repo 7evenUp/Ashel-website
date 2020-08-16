@@ -20,4 +20,20 @@ const postsTypeDefs = gql`
   }
 `
 
-module.exports = postsTypeDefs
+const postsQueryType = `
+  posts: [Post!]!
+  post(id: ID): Post!
+`
+
+const postsMutationType = `
+  addPost(
+    id: ID,
+    heading: String,
+    text: String,
+    photoUrl: String
+  ): AddPostMutationResponse!
+`
+
+module.exports.postsTypeDefs = postsTypeDefs
+module.exports.postsQueryType = postsQueryType
+module.exports.postsMutationType = postsMutationType
