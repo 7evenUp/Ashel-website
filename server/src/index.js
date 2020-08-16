@@ -1,10 +1,7 @@
 require('dotenv').config()
 const { ApolloServer } = require('apollo-server')
 const { MongoClient } = require('mongodb')
-const { MONGODB_PASSWORD: password, MONGODB_DB_NAME: dbName } = process.env
-const connectionString = `mongodb+srv://Artyom:${password}@myfirstcluster-ctiiw.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`
-
-const { createStore } = require('./store')
+const { MONGO_DB_URI, MONGO_DB_DBNAME } = process.env
 const { schema } = require('./schema')
 
 let db
@@ -14,11 +11,10 @@ const server = new ApolloServer({
   context: async () => {
     if (!db) {
       try {
-        const client = new MongoClient(connectionString, { useUnifiedTopology: true })
+        const client = new MongoClient(MONGO_DB_URI, { useUnifiedTopology: true })
         if (!client.isConnected()) await client.connect()
-        db = client.db(dbName)
+        db = client.db(MONGO_DB_DBNAME)
         console.log('Подключились к БД!')
-        // console.log(db)
       }
       catch (err) {
         console.error(err)
