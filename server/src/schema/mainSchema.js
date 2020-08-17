@@ -1,5 +1,6 @@
 const { gql } = require('apollo-server')
 const { postsQueryType, postsMutationType } = require('./posts/postsSchema')
+const { galleryQueryType, galleryMutationType } = require('./gallery/gallerySchema')
 
 const typeDefs = gql`
   scalar Date

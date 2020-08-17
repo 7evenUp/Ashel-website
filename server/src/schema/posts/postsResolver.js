@@ -1,6 +1,6 @@
 const postsResolver = {
   Query: {
-    post: async (_, { id }, context) => await context.db.collection('posts').findOne({id}),
+    post: async (_, { _id }, context) => await context.db.collection('posts').findOne({_id}),
     posts: (_, __, context) => context.db.collection('posts').find().toArray()
   },
   Mutation: {

@@ -4,8 +4,9 @@ const { Kind } = require('graphql/language')
 const resolvers = {
   MutationResponse: {
     __resolveType: (mutation, context, info) => {
-      console.log('INSIDE MutationResponse resolver')
-      return 'AddPostMutationResponse'
+      if (mutation.post) return 'AddPostMutationResponse'
+      if (mutation.galleryItem) return 'AddGalleryItemMutationResponse'
+      return null
     }
   },
   Date: new GraphQLScalarType({
