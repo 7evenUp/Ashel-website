@@ -3,7 +3,7 @@ const { gql } = require('apollo-server')
 const postsTypeDefs = gql`
   "Пост для блога"
   type Post {
-    id: ID!
+    _id: ID!
     heading: String!
     text: String!
     created: Date!
@@ -22,12 +22,11 @@ const postsTypeDefs = gql`
 
 const postsQueryType = `
   posts: [Post!]!
-  post(id: ID): Post!
+  post(_id: ID): Post!
 `
 
 const postsMutationType = `
   addPost(
-    id: ID,
     heading: String,
     text: String,
     photoUrl: String

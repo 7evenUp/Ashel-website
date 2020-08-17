@@ -4,20 +4,24 @@ const postsResolver = {
     posts: (_, __, context) => context.db.collection('posts').find().toArray()
   },
   Mutation: {
-    addPost: (_, { id, heading, text, photoUrl }, context) => {
+    addPost: async (_, { heading, text, photoUrl }, context) => {
       const newPost = {
-        id,
         heading,
         text,
         created: new Date(),
         photoUrl
       }
-      context.db.collection('posts').insertOne(newPost).then(data => data)
+      
+      const { insertedId } = await context.db.collection('posts').insertOne(newPost)
+        
       return {
         code: '200',
         success: true,
         message: 'New post was successfuly added',
-        post: newPost
+        post: {
+          _id: insertedId,
+          ...newPost
+        }
       }
     }
   }
