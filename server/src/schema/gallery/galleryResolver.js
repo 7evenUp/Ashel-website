@@ -16,8 +16,8 @@ const galleryResolver = {
       return {
         code: '200',
         success: true,
-        message: 'New photo was successfuly added',
-        post: {
+        message: 'New photo was successfully added',
+        galleryItem: {
           _id: insertedId,
           ...newGalleryItem
         }

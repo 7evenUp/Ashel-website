@@ -4,8 +4,12 @@ const { Kind } = require('graphql/language')
 const resolvers = {
   MutationResponse: {
     __resolveType: (mutation, context, info) => {
-      if (mutation.post) return 'AddPostMutationResponse'
-      if (mutation.galleryItem) return 'AddGalleryItemMutationResponse'
+      if (mutation.post) {
+        return 'AddPostMutationResponse'
+      }
+      if (mutation.galleryItem) {
+        return 'AddGalleryItemMutationResponse'
+      }
       return null
     }
   },
@@ -13,16 +17,16 @@ const resolvers = {
     name: 'Date',
     description: 'Date custom scalar type',
     parseValue(value) {
-      return new Date(value); // value from the client
+      return new Date(value) // value from the client
     },
     serialize(value) {
-      return value.getTime(); // value sent to the client
+      return value.getTime() // value sent to the client
     },
     parseLiteral(ast) {
       if (ast.kind === Kind.INT) {
-        return parseInt(ast.value, 10); // ast value is always in string format
+        return parseInt(ast.value, 10) // ast value is always in string format
       }
-      return null;
+      return null
     },
   })
 }

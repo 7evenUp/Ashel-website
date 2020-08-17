@@ -17,7 +17,7 @@ const postsResolver = {
       return {
         code: '200',
         success: true,
-        message: 'New post was successfuly added',
+        message: 'New post was successfully added',
         post: {
           _id: insertedId,
           ...newPost

@@ -17,20 +17,18 @@ const galleryTypeDefs = gql`
     message: String!
     galleryItem: GalleryItem!
   }
-`
 
-const galleryQueryType = `
-  gallery: [GalleryItem!]!
-  galleryItem(_id: ID): GalleryItem!
-`
+  type Query {
+    gallery: [GalleryItem!]!
+    galleryItem(_id: ID): GalleryItem!
+  }
 
-const galleryMutationType = `
-  addGalleryItem(
-    photoUrl: String
-    description: String
-  )
+  type Mutation {
+    addGalleryItem(
+      photoUrl: String
+      description: String
+    ): AddGalleryItemMutationResponse!
+  }
 `
 
 module.exports.galleryTypeDefs = galleryTypeDefs
-module.exports.galleryQueryType = galleryQueryType
-module.exports.galleryMutationType = galleryMutationType

@@ -1,2 +1,2 @@
-module.exports.galleryTypeDefs = require('./postsSchema').galleryTypeDefs
-module.exports.galleryResolver = require('./postsResolver')
+module.exports.galleryTypeDefs = require('./gallerySchema').galleryTypeDefs
+module.exports.galleryResolver = require('./galleryResolver')
