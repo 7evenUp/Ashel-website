@@ -1,4 +1,4 @@
-const { makeExecutableSchema, mergeTypeDefs } = require('graphql-tools')
+const { makeExecutableSchema, mergeTypeDefs, mergeResolvers } = require('graphql-tools')
 
 const mainTypeDefs = require('./mainSchema')
 const mainResolvers = require('./mainResolvers')
@@ -11,7 +11,13 @@ const types = [
   galleryTypeDefs
 ]
 
+const resolversArray = [
+  mainResolvers,
+  postsResolver,
+  galleryResolver
+]
+
 module.exports.schema = makeExecutableSchema({
   typeDefs: mergeTypeDefs(types, { all: true }),
-  resolvers: [mainResolvers, postsResolver, galleryResolver]
+  resolvers: mergeResolvers(resolversArray)
 })
