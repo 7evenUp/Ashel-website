@@ -1,14 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { ApolloProvider } from '@apollo/client'
 import { client } from './apolloClient'
-import App from './App'
+import { AppRouter } from './AppRouter'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
     <ApolloProvider client={client}>
-      <App />
+      <AppRouter />
     </ApolloProvider>
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 )
