@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 
 const Main = styled.main`
@@ -8,7 +8,7 @@ const Main = styled.main`
   flex: 1;
 `
 
-const MainContent = ({children}: any) => {
+const MainContent: FunctionComponent = ({children}) => {
   return (
     <Main>
       {children}
