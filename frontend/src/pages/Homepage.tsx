@@ -15,7 +15,7 @@ const Info = styled.div`
 `
 
 const TextBlock = styled.div`
-  margin-top: 24px;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,10 +29,12 @@ const GridLayout = styled.section`
 `
 
 const Header = styled.header`
-  background: white;
-  color: black;
+  color: white;
   grid-column: 1 / 4;
   grid-row: 1 / 2;
+  font-size: 8rem;
+  font-family: 'Russo One', sans-serif;
+  margin-left: 4rem;
 `
 
 export const Homepage = () => {

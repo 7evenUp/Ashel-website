@@ -10,7 +10,7 @@ const Nav = styled.nav`
 const Navigation = () => {
   return (
     <Nav>
-      <b>Navigation123</b>
+      <b>Navigation</b>
     </Nav>
   )
 }
