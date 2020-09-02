@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { GlobalStyles } from './styles/GlobalStyles'
 import { Navigation } from './layouts/Navigation'
-import { MainContent } from './layouts/Main'
 import { PageLayout } from './layouts/PageLayout'
 import { Homepage } from './pages/Homepage'
 import { BlogPage } from './pages/BlogPage'
@@ -15,7 +14,7 @@ const AppRouter = () => {
       <GlobalStyles />
       <PageLayout>
         <Navigation />
-        <MainContent>
+        <main>
           <Switch>
             <Route path="/" exact><Homepage /></Route>
             <Route path="/blog"><BlogPage /></Route>
@@ -23,7 +22,7 @@ const AppRouter = () => {
             <Route path="/gallery"><GalleryPage /></Route>
             <Redirect to="/" />
           </Switch>
-        </MainContent>
+        </main>
       </PageLayout>
     </>
   )
