@@ -1,0 +1,45 @@
+.wrapper {
+  height: max-content;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+
+.sort_input {
+  width: 275px;
+}
+
+.filter_wrapper {
+  margin-top: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.label {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.button {
+  background-color: #FAE420;
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  max-width: max-content;
+  border-radius: 15px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.button:hover {
+  cursor: pointer;
+}

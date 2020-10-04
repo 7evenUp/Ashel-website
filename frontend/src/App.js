@@ -13,21 +13,23 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route path="/blog">
-          <Blog />
-        </Route>
-        <Route path="/portfolio">
-          <Portfolio />
-        </Route>
-        <Route path="/gallery">
-          <Gallery />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Redirect to="/blog" />
-      </Switch>
+      <main className="container">
+        <Switch>
+          <Route path="/blog">
+            <Blog />
+          </Route>
+          <Route path="/portfolio">
+            <Portfolio />
+          </Route>
+          <Route path="/gallery">
+            <Gallery />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Redirect to="/blog" />
+        </Switch>
+      </main>
     </Router>
   )
 }
