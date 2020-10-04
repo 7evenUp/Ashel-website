@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  list-style: none;
+  column-gap: 5vw;
+}
+
+.list__item {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  padding: 9px 24px;
+  border-radius: 15px;
+}
+
+.list__item_active {
+  background-color: #FAE420;
+}
