@@ -6,6 +6,7 @@ const Blog = () => {
   return (
     <section className={styles.section}>
       <SortAndFilter />
+      <span className={styles.span}></span>
       <Posts />
     </section>
   )

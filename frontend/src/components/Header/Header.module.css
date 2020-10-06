@@ -1,5 +1,6 @@
 .header {
   min-height: 108px;
+  border-top: max(2px, 0.3vw) solid #FAE420;
   border-bottom: 1px solid #C4C4C4;
   display: flex;
   justify-content: center;

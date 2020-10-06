@@ -1,4 +1,9 @@
 .section {
   display: flex;
-  column-gap: 120px;
+  column-gap: 60px;
+}
+
+.span {
+  width: 1px;
+  background-color: #C4C4C4;
 }
