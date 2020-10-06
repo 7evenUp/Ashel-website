@@ -10,7 +10,7 @@ class PostsAPI extends DataSource {
     this.context = config.context;
   }
 
-  async createPost(args) {
-    const posts = 
-  }
+  // async createPost(args) {
+  //   const posts = 
+  // }
 }
