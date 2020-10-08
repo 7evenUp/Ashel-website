@@ -15,18 +15,10 @@ const App = () => {
       <Header />
       <main className="container">
         <Switch>
-          <Route path="/blog">
-            <Blog />
-          </Route>
-          <Route path="/portfolio">
-            <Portfolio />
-          </Route>
-          <Route path="/gallery">
-            <Gallery />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
+          <Route path="/blog"       component={Blog} />
+          <Route path="/portfolio"  component={Portfolio} />
+          <Route path="/gallery"    component={Gallery} />
+          <Route path="/about"      component={About} />
           <Redirect to="/blog" />
         </Switch>
       </main>
