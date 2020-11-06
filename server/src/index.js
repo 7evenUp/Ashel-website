@@ -23,7 +23,7 @@ const server = new ApolloServer({
     
     return { db }
   },  
-  engine: {    
+  engine: {
     reportSchema: true,
     variant: "current",
     graphVariant: "current"
