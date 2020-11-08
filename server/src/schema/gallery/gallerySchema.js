@@ -4,10 +4,9 @@ const galleryTypeDefs = gql`
   "Фотография с описанием из галлереи"
   type GalleryItem {
     _id: ID!
-    description: String
+    filter: String!
     photoUrl: String!
     created: Date!
-    updated: Date
   }
 
   "Return value of inserted galleryPhoto"
@@ -26,7 +25,7 @@ const galleryTypeDefs = gql`
   type Mutation {
     addGalleryItem(
       photoUrl: String
-      description: String
+      filter: String
     ): AddGalleryItemMutationResponse!
   }
 `

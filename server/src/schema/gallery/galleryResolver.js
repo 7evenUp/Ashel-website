@@ -4,15 +4,15 @@ const galleryResolver = {
     galleryItem: async (_, { _id }, context) => await context.db.collection('gallery').findOne({_id})
   },
   Mutation: {
-    addGalleryItem: async (_, { description, photoUrl }, context) => {
+    addGalleryItem: async (_, { filter, photoUrl }, context) => {
       const newGalleryItem = {
-        description,
+        filter,
         created: new Date(),
         photoUrl
       }
-      
+
       const { insertedId } = await context.db.collection('gallery').insertOne(newGalleryItem)
-        
+
       return {
         code: '200',
         success: true,
