@@ -7,6 +7,7 @@ const postsTypeDefs = gql`
     heading: String!
     text: String!
     created: Date!
+    filter: String!
     updated: Date
     photoUrl: String!
   }
@@ -28,7 +29,8 @@ const postsTypeDefs = gql`
     addPost(
       heading: String,
       text: String,
-      photoUrl: String
+      photoUrl: String,
+      filter: String
     ): AddPostMutationResponse!
   }
 `
