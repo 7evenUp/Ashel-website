@@ -4,17 +4,20 @@ const mainTypeDefs = require('./mainSchema')
 const mainResolvers = require('./mainResolvers')
 const { postsTypeDefs, postsResolver } = require('./posts')
 const { galleryTypeDefs, galleryResolver } = require('./gallery')
+const { portfolioTypeDefs, portfolioResolver } = require('./portfolio')
 
 const types = [
   mainTypeDefs,
   postsTypeDefs,
-  galleryTypeDefs
+  galleryTypeDefs,
+  portfolioTypeDefs
 ]
 
 const resolversArray = [
   mainResolvers,
   postsResolver,
-  galleryResolver
+  galleryResolver,
+  portfolioResolver
 ]
 
 module.exports.schema = makeExecutableSchema({
