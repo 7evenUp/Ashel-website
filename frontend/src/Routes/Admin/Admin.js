@@ -1,6 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useQuery, gql } from '@apollo/client'
+
+const QUERY = gql`
+  query GetData {
+    posts {
+      heading
+      text
+      filter
+      created
+    }
+    works {
+      heading
+      text
+      created
+    }
+    gallery {
+      created
+    }
+  }
+`
 
 const Admin = () => {
+  const [image, setImage] = useState(null)
+  const { loading, error, data } = useQuery(QUERY)
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
+
+  console.log(data)
+
+  const OnFileChange = evt => setImage(evt.target.files)
+
+  const onSubmit = () => {
+    console.log(image)
+  }
+
   return (
     <>
       <header>
@@ -8,7 +42,9 @@ const Admin = () => {
       </header>
       <main>
         <form>
-          
+          <span>Загрузи фотку</span>
+          <input name="fileUpload" type="file" onChange={OnFileChange}/>
+          <button type="button" onClick={onSubmit}>Submit</button>
         </form>
       </main>
     </>
