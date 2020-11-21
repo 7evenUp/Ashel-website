@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom'
 import { Header } from './components'
-import { Blog, Portfolio, Gallery, About } from './routes'
+import { Blog, Portfolio, Gallery, About, Admin } from './routes'
 import './App.css'
 
 const App = () => {
@@ -19,6 +19,7 @@ const App = () => {
           <Route path="/portfolio"  component={Portfolio} />
           <Route path="/gallery"    component={Gallery} />
           <Route path="/about"      component={About} />
+          <Route path="/admin"      component={Admin} />
           <Redirect to="/blog" />
         </Switch>
       </main>
