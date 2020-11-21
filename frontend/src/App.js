@@ -11,12 +11,10 @@ import { Header } from './components'
 import { Blog, Portfolio, Gallery, About, Admin } from './routes'
 import './App.css'
 
-const httpLink = createUploadLink({
-  uri: 'http://localhost:4000/'
-})
-
 const client = new ApolloClient({
-  link: httpLink,
+  link: createUploadLink({
+    uri: 'http://localhost:4000/'
+  }),
   cache: new InMemoryCache()
 })
 

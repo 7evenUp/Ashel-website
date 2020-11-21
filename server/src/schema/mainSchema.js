@@ -2,6 +2,7 @@ const { gql } = require('apollo-server')
 
 const typeDefs = gql`
   scalar Date
+  scalar Upload
 
   interface MutationResponse {
     code: String!

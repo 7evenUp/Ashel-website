@@ -5,7 +5,7 @@ const galleryTypeDefs = gql`
   type GalleryItem {
     _id: ID!
     filter: String!
-    photoUrl: String!
+    photo: File!
     created: Date!
   }
 
@@ -24,8 +24,8 @@ const galleryTypeDefs = gql`
 
   type Mutation {
     addGalleryItem(
-      photoUrl: String
-      filter: String
+      file: Upload!
+      filter: String!
     ): AddGalleryItemMutationResponse!
   }
 `
