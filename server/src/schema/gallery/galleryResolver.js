@@ -1,5 +1,4 @@
-const fs = require('fs')
-const path = require('path')
+const upload = require('../../utils/uploadImage')
 
 const galleryResolver = {
   Query: {
@@ -9,14 +8,8 @@ const galleryResolver = {
   Mutation: {
     addGalleryItem: async (_, { filter, file }, context) => {
       const { file: {filename, mimetype, encoding, createReadStream} } = await file
-
-      const writeableStream = fs.createWriteStream(path.join(__dirname, `/../../../img/${filename}`))
-      const readStream = createReadStream()
-
-      readStream.on('error', err => console.error(err))
-      readStream.on('data', chunk => {
-        writeableStream.write(chunk)
-      })
+      upload(createReadStream, filename)
+      
 
       const newGalleryItem = {
         filter,
