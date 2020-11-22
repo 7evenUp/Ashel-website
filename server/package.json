@@ -4,9 +4,14 @@
     "apollo-datasource-mongodb": "^0.2.7",
     "apollo-server": "^2.16.1",
     "dotenv": "^8.2.0",
+    "fs-capacitor": "^6.2.0",
     "graphql": "^15.3.0",
     "graphql-tools": "^6.0.18",
     "mongodb": "^3.6.0"
+  },
+  "resolutions": {
+    "**/**/fs-capacitor": "^6.2.0",
+    "**/graphql-upload": "^11.0.0"
   },
   "scripts": {
     "start": "nodemon ./src/index.js"

@@ -1,3 +1,6 @@
+const fs = require('fs')
+const path = require('path')
+
 const galleryResolver = {
   Query: {
     gallery: (_, __, context) => context.db.collection('gallery').find().toArray(),
@@ -5,6 +8,16 @@ const galleryResolver = {
   },
   Mutation: {
     addGalleryItem: async (_, { filter, file }, context) => {
+      const { file: {filename, mimetype, encoding, createReadStream} } = await file
+
+      const writeableStream = fs.createWriteStream(path.join(__dirname, `/../../../img/${filename}`))
+      const readStream = createReadStream()
+
+      readStream.on('error', err => console.error(err))
+      readStream.on('data', chunk => {
+        writeableStream.write(chunk)
+      })
+
       const newGalleryItem = {
         filter,
         file,

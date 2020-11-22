@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery, useMutation, gql } from '@apollo/client'
 
 const QUERY = gql`
   query GetData {
@@ -20,19 +20,37 @@ const QUERY = gql`
   }
 `
 
+const MUTATION = gql`
+  mutation($file: Upload!, $filter: String!) {
+    addGalleryItem(
+      file: $file,
+      filter: $filter
+    ) {
+      code
+      galleryItem {
+        filter
+        created
+      }
+    }
+  }
+`
+
 const Admin = () => {
   const [image, setImage] = useState(null)
-  const { loading, error, data } = useQuery(QUERY)
+
+  const [mutate, { loading, error }] = useMutation(MUTATION)
+
+  // const { loading, error, data } = useQuery(QUERY)
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
 
-  console.log(data)
+  // console.log(data)
 
-  const OnFileChange = evt => setImage(evt.target.files)
+  const OnFileChange = evt => setImage(evt.target.files[0])
 
   const onSubmit = () => {
-    console.log(image)
+    mutate({variables: {file: image, filter: "soccer"}})
   }
 
   return (
