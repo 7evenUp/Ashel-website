@@ -1,8 +1,15 @@
 const upload = require('../../utils/uploadImage')
+const fs = require('fs')
+const path = require('path')
+
+// const writeableStream = fs.createWriteStream(path.join(process.cwd(), 'img', filename))
+// const readStream = createReadStream()
+
+// readStream.pipe(writeableStream)s
 
 const galleryResolver = {
   Query: {
-    gallery: (_, __, context) => context.db.collection('gallery').find().toArray(),
+    gallery: async (_, __, context) => await context.db.collection('gallery').find().toArray(),
     galleryItem: async (_, { _id }, context) => await context.db.collection('gallery').findOne({_id})
   },
   Mutation: {
@@ -13,7 +20,11 @@ const galleryResolver = {
 
       const newGalleryItem = {
         filter,
-        file,
+        photo: {
+          filename,
+          mimetype,
+          encoding
+        },
         created: new Date()
       }
 
