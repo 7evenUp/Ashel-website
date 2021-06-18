@@ -1,4 +1,4 @@
-const upload = require('../../utils/uploadImage')
+const uploadImage = require('../../utils/uploadImage')
 const fs = require('fs')
 const path = require('path')
 
@@ -14,9 +14,8 @@ const galleryResolver = {
   },
   Mutation: {
     addGalleryItem: async (_, { filter, file }, context) => {
-      const { file: {filename, mimetype, encoding, createReadStream} } = await file
-      upload(createReadStream, filename)
-      
+      const { filename, mimetype, encoding, createReadStream } = await file
+      uploadImage(createReadStream, filename)      
 
       const newGalleryItem = {
         filter,
