@@ -27,7 +27,8 @@ const GalleryGrid = () => {
 
   return (
     <div className={styles.gallery}>
-      {img && <PhotoItem src={`http://localhost:1337${img}`} />}
+      {/* {img && <PhotoItem src={`http://localhost:1337${img}`} />} */}
+      <PhotoItem src={'http://localhost:4000/static/img/30387833.png'} />
       <PhotoItem src={img1}/>
       <PhotoItem src={img2} />
       <PhotoItem src={img3} />
