@@ -18,8 +18,8 @@ const galleryTypeDefs = gql`
   }
 
   type Query {
-    gallery: [GalleryItem!]!
-    galleryItem(_id: ID): GalleryItem!
+    gallery(filter: String): [GalleryItem!]!
+    galleryItem(_id: ID!): GalleryItem!
   }
 
   type Mutation {

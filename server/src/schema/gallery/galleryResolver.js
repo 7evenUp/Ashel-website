@@ -9,7 +9,10 @@ const path = require('path')
 
 const galleryResolver = {
   Query: {
-    gallery: async (_, __, context) => await context.db.collection('gallery').find().toArray(),
+    gallery: async (_, { filter }, context) => {
+      if (filter === undefined) return await context.db.collection('gallery').find().toArray()
+      else return await context.db.collection('gallery').find({ filter: { $eq: filter } }).toArray()
+    },
     galleryItem: async (_, { _id }, context) => await context.db.collection('gallery').findOne({_id})
   },
   Mutation: {
@@ -22,7 +25,7 @@ const galleryResolver = {
         photo: {
           filename,
           mimetype,
-          encoding
+          encoding,
         },
         created: new Date()
       }
