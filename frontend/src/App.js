@@ -5,8 +5,9 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
+import { ApolloProvider, ApolloClient } from '@apollo/client'
 import { createUploadLink } from 'apollo-upload-client'
+import { cache } from './cache/cache'
 import { Header } from './components'
 import { Blog, Portfolio, Gallery, About, Admin } from './routes'
 import './App.css'
@@ -15,7 +16,7 @@ const client = new ApolloClient({
   link: createUploadLink({
     uri: 'http://localhost:4000/graphql'
   }),
-  cache: new InMemoryCache()
+  cache
 })
 
 const App = () => {

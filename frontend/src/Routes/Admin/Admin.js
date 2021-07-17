@@ -53,7 +53,7 @@ const Admin = () => {
   const OnFileChange = evt => setImage(evt.target.files[0])
 
   const onSubmit = () => {
-    mutate({variables: {file: image, filter: "soccer"}})
+    mutate({variables: {file: image, filter: "programing"}})
   }
 
   return (

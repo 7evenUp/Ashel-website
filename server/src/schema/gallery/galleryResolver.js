@@ -1,17 +1,10 @@
 const uploadImage = require('../../utils/uploadImage')
-const fs = require('fs')
-const path = require('path')
-
-// const writeableStream = fs.createWriteStream(path.join(process.cwd(), 'img', filename))
-// const readStream = createReadStream()
-
-// readStream.pipe(writeableStream)s
 
 const galleryResolver = {
   Query: {
     gallery: async (_, { filter }, context) => {
-      if (filter === undefined) return await context.db.collection('gallery').find().toArray()
-      else return await context.db.collection('gallery').find({ filter: { $eq: filter } }).toArray()
+      if (!filter.length) return await context.db.collection('gallery').find().toArray()
+      else return await context.db.collection('gallery').find({ filter: { $in: filter } }).toArray()
     },
     galleryItem: async (_, { _id }, context) => await context.db.collection('gallery').findOne({_id})
   },

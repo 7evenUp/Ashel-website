@@ -18,7 +18,7 @@ const galleryTypeDefs = gql`
   }
 
   type Query {
-    gallery(filter: String): [GalleryItem!]!
+    gallery(filter: [String!]!): [GalleryItem!]!
     galleryItem(_id: ID!): GalleryItem!
   }
 

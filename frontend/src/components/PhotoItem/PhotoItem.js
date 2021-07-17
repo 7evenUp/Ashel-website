@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './PhotoItem.module.css'
 
-const PhotoItem = ({src}) => {
+const PhotoItem = ({src, created, filter}) => {
+  const date = new Date(created).toLocaleDateString()
   return (
     <div className={styles.photo}>
-      <img className={styles.photo__img} src={src} alt="work" />
-      <span className={styles.photo__date}>20.10.2020</span>
+      <img className={styles.photo__img} src={src} alt={filter} />
+      <span className={styles.photo__date}>{date}</span>
     </div>
   )
 }
