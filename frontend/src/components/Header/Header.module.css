@@ -3,6 +3,15 @@
   border-top: max(2px, 0.3vw) solid #FAE420;
   border-bottom: 1px solid #C4C4C4;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 75px;
+}
+
+.admin {
+  color: black;
+}
+
+.admin_active {
+  color: #FAE420;
 }
