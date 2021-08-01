@@ -1,11 +1,7 @@
 import React from 'react'
+import { IoLogoVk, IoLogoInstagram, IoLogoTwitter, IoLogoYoutube, IoLogoGithub, IoMail  } from 'react-icons/io5'
 import styles from './About.module.css'
 import MyImage from '../../img/man.jpg'
-import VkIcon from '../../img/Vector_VK.svg'
-import InstIcon from '../../img/Vector_Inst.svg'
-import YoutubeIcon from '../../img/Vector_Youtube.svg'
-import MailIcon from '../../img/Vector_Mail.svg'
-import GithubIcon from '../../img/Vector_Github.svg'
 
 const About = () => {
   return (
@@ -34,11 +30,12 @@ const About = () => {
           <div className="card">
             <h2 className={styles.card_heading}>Мои контакты</h2>
             <ul className={styles.contacts_list}>
-              <li><a href="https://vk.com/aptem_oxa"><embed className={styles.contacts_icon} src={VkIcon} /></a></li>
-              <li><a href="https://vk.com/aptem_oxa"><embed className={styles.contacts_icon} src={InstIcon} /></a></li>
-              <li><a href="https://vk.com/aptem_oxa"><embed className={styles.contacts_icon} src={YoutubeIcon} /></a></li>
-              <li><a href="https://vk.com/aptem_oxa"><embed className={styles.contacts_icon} src={MailIcon} /></a></li>
-              <li><a href="https://vk.com/aptem_oxa"><embed className={styles.contacts_icon} src={GithubIcon} /></a></li>
+              <li><a href="https://vk.com/aptem_oxa"><IoLogoVk /> Вконтакте</a></li>
+              <li><a href="https://www.instagram.com/7_even_up/"><IoLogoInstagram /> Instagram</a></li>
+              <li><a href="https://www.youtube.com/channel/UChojN6dPfAgXI88-27ey8AQ"><IoLogoYoutube /> Youtube</a></li>
+              <li><a href="https://twitter.com/_7even_up_"><IoLogoTwitter /> Twitter</a></li>
+              <li><a href="https://github.com/7evenUp"><IoLogoGithub /> Github</a></li>
+              <li><a href="mailto:sheludeshev.artyom@mail.ru"><IoMail /> Email</a></li>
             </ul>
           </div>
         </div>
