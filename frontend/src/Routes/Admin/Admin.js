@@ -1,73 +1,55 @@
-import React, { useState } from 'react'
-import { useQuery, useMutation, gql } from '@apollo/client'
+import React from 'react'
 
-const QUERY = gql`
-  query GetData {
-    posts {
-      heading
-      text
-      filter
-      created
-    }
-    works {
-      heading
-      text
-      created
-    }
-    gallery {
-      created
-    }
-  }
-`
+import {
+  Route,
+  Switch,
+  Redirect,
+  NavLink
+} from 'react-router-dom'
 
-const MUTATION = gql`
-  mutation($file: Upload!, $filter: String!) {
-    addGalleryItem(
-      file: $file,
-      filter: $filter
-    ) {
-      code
-      galleryItem {
-        filter
-        created
-      }
-    }
-  }
-`
+import Gallery from './Gallery'
+
+import styles from './Admin.module.css'
 
 const Admin = () => {
-  const [image, setImage] = useState(null)
-
-  const [mutate, { loading, error }] = useMutation(MUTATION)
-
-  // const { loading, error, data } = useQuery(QUERY)
-
-  if (loading) return <p>Loading...</p>
-  if (error) {
-    console.log(error)
-    return <p>Error :(</p>
-    }
-
-  // console.log(data)
-
-  const OnFileChange = evt => setImage(evt.target.files[0])
-
-  const onSubmit = () => {
-    mutate({variables: {file: image, filter: "programing"}})
-  }
-
   return (
     <>
-      <header>
-        <h1>Админ панель</h1>
-      </header>
-      <main>
-        <form>
-          <span>Загрузи фотку</span>
-          <input name="fileUpload" type="file" onChange={OnFileChange}/>
-          <button type="button" onClick={onSubmit}>Submit</button>
-        </form>
-      </main>
+      <h1 className={styles.heading}>Админ панель</h1>
+      <nav className={styles.navigation}>
+        <ul className={styles.list}>
+          <li className={styles.list__item}>
+            <NavLink 
+              className={styles.list__link}
+              activeClassName={styles.list__link_active}
+              to="/admin/blog">Блог</NavLink>
+          </li>
+          <li className={styles.list__item}>
+            <NavLink
+              className={styles.list__link}
+              activeClassName={styles.list__link_active}
+              to="/admin/portfolio">Портфолио</NavLink>
+          </li>
+          <li className={styles.list__item}>
+            <NavLink  
+              className={styles.list__link}
+              activeClassName={styles.list__link_active}
+              to="/admin/gallery">Галерея</NavLink>
+          </li>
+          <li className={styles.list__item}>
+            <NavLink  
+              className={styles.list__link}
+              activeClassName={styles.list__link_active}
+              to="/admin/about">Инфа</NavLink>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route path="/admin/blog" render={() => (<div>2</div>)}/>
+        <Route path="/admin/portfolio" component={<div>3</div>} />
+        <Route path="/admin/gallery" component={Gallery} />
+        <Route path="/admin/about" component={<div>1</div>} />
+        <Redirect to="/admin" />
+      </Switch>
     </>
   )
 }
