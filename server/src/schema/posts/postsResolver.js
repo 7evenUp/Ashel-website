@@ -1,16 +1,25 @@
+const uploadImage = require("../../utils/uploadImage")
+
 const postsResolver = {
   Query: {
     post: async (_, { _id }, context) => await context.db.collection('posts').findOne({_id}),
     posts: (_, __, context) => context.db.collection('posts').find().toArray()
   },
   Mutation: {
-    addPost: async (_, { heading, text, photoUrl, filter }, context) => {
+    addPost: async (_, { heading, text, file, filter }, context) => {
+      const { filename, mimetype, encoding, createReadStream } = await file
+      uploadImage(createReadStream, filename)
+
       const newPost = {
         heading,
         text,
         filter,
         created: new Date(),
-        photoUrl
+        photo: {
+          filename,
+          mimetype,
+          encoding
+        }
       }
 
       const { insertedId } = await context.db.collection('posts').insertOne(newPost)

@@ -9,7 +9,7 @@ const postsTypeDefs = gql`
     created: Date!
     filter: String!
     updated: Date
-    photoUrl: String!
+    photo: File!
   }
 
   "Return value of inserted Post"
@@ -27,10 +27,10 @@ const postsTypeDefs = gql`
 
   type Mutation {
     addPost(
-      heading: String,
-      text: String,
-      photoUrl: String,
-      filter: String
+      heading: String!,
+      text: String!,
+      file: Upload!,
+      filter: String!
     ): AddPostMutationResponse!
   }
 `
