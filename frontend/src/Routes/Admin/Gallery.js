@@ -37,6 +37,7 @@ export default function Gallery() {
     const onSubmit = () => {
         mutate({variables: {file: image, filter: "study"}})
     }
+    
     return (
         <form>
           <span>Загрузи фотку</span>

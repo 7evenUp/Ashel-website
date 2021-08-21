@@ -7,6 +7,7 @@ import {
   NavLink
 } from 'react-router-dom'
 
+import Blog from './Blog'
 import Gallery from './Gallery'
 
 import styles from './Admin.module.css'
@@ -44,10 +45,10 @@ const Admin = () => {
         </ul>
       </nav>
       <Switch>
-        <Route path="/admin/blog" render={() => (<div>2</div>)}/>
-        <Route path="/admin/portfolio" component={<div>3</div>} />
+        <Route path="/admin/blog" component={Blog}/>
+        {/* <Route path="/admin/portfolio" component={<div>3</div>} /> */}
         <Route path="/admin/gallery" component={Gallery} />
-        <Route path="/admin/about" component={<div>1</div>} />
+        {/* <Route path="/admin/about" component={<div>1</div>} /> */}
         <Redirect to="/admin" />
       </Switch>
     </>
