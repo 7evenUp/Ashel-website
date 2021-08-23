@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { useMutation, gql } from '@apollo/client'
 
+import styles from './Blog.module.css'
+
 const MUTATION = gql`
   mutation($heading: String!, $text: String!, $file: Upload!, $filter: String!) {
     addPost(
@@ -51,24 +53,35 @@ export default function Blog() {
     }
 
     return (
-        <form>
-            <label htmlFor="heading">Заголовок</label>
-            <input id="heading" type="text" value={heading} onChange={onHeadeingChange}/>
+        <form className={styles.form}>
+          <fieldset className={styles.fieldset}>
+            <label className={styles.label} htmlFor="heading">Заголовок</label>
+            <input className={styles.input} id="heading" type="text" value={heading} onChange={onHeadeingChange}/>
+          </fieldset>
+            
+          <fieldset className={styles.fieldset}>
+            <label className={styles.label} htmlFor="text">Содержимое</label>
+            <textarea className={styles.textarea} id="text" value={text} onChange={onTextChange}></textarea>
+          </fieldset>
 
-            <label htmlFor="text">Содержимое</label>
-            <textarea id="text" value={text} onChange={onTextChange}></textarea>
-
-            <label htmlFor="filter">Фильтр</label>
-            <select id="filter" value={filter} onChange={onFilterChange}>
-                <option value="soccer">Футбол</option>
+          <fieldset className={styles.fieldset}>
+            <label className={styles.label} htmlFor="filter">Фильтр</label>
+            <select className={styles.select} id="filter" value={filter} onChange={onFilterChange}>
+                <option className={styles.option} value="soccer">Футбол</option>
                 <option value="programing">Программирование</option>
                 <option value="daily">Повседневка</option>
             </select>
-
-            <label htmlFor="photo">Фото</label>
+          </fieldset>
+            
+          <fieldset className={styles.fieldset}>
+            <label className={styles.label} htmlFor="photo">Фото</label>
             <input id="photo" name="fileUpload" type="file" onChange={OnFileChange}/>
+          </fieldset>
         
-            <button type="button" onClick={onSubmit}>Окей</button>
+          <button
+            className={styles.button}
+            type="button"
+            onClick={onSubmit}>Окей</button>
         </form>
     )
 }

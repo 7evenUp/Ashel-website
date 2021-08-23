@@ -1,0 +1,66 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    width: 30%;
+}
+
+.label {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.input {
+    padding: 8px;
+    font-size: 18px;
+}
+
+.input:focus {
+    outline-color: #FAE420;
+}
+
+.textarea {
+    resize: none;
+    padding: 8px;
+    height: 150px;
+    font-size: 18px;
+}
+
+.textarea:focus {
+    outline-color: #FAE420;
+}
+
+.select {
+    width: 200px;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.select:focus {
+    outline-color: #FAE420;
+}
+
+.option {
+    padding: 8px;
+}
+
+.button {
+    width: 100px;
+    background-color: #FAE420;
+    color: black;
+    padding: 8px 16px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    transition: all .15s ease-in;
+}
+
+.button:hover {
+    background-color: #f7ea79;
+}
