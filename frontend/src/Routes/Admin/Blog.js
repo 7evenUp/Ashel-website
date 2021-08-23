@@ -41,9 +41,6 @@ export default function Blog() {
     const onFilterChange = evt => setFilter(evt.target.value)
     const OnFileChange = evt => setImage(evt.target.files[0])
     const onSubmit = () => {
-        console.log(heading)
-        console.log(text)
-        console.log(filter)
         mutate({variables: {
             heading,
             text,
@@ -67,7 +64,7 @@ export default function Blog() {
           <fieldset className={styles.fieldset}>
             <label className={styles.label} htmlFor="filter">Фильтр</label>
             <select className={styles.select} id="filter" value={filter} onChange={onFilterChange}>
-                <option className={styles.option} value="soccer">Футбол</option>
+                <option value="soccer">Футбол</option>
                 <option value="programing">Программирование</option>
                 <option value="daily">Повседневка</option>
             </select>
