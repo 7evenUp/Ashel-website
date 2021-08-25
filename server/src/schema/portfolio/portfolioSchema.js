@@ -7,7 +7,8 @@ const portfolioTypeDefs = gql`
     heading: String!
     created: Date!
     text: String!
-    photoUrl: String!
+    photo: File!
+    stack: [String!]!
   }
 
   type AddWorkMutationResponse implements MutationResponse {
@@ -24,9 +25,10 @@ const portfolioTypeDefs = gql`
 
   type Mutation {
     addWork(
-      heading: String,
-      text: String,
-      photoUrl: String
+      heading: String!,
+      text: String!,
+      file: Upload!,
+      stack: [String!]!
     ): AddWorkMutationResponse
   }
 `

@@ -1,15 +1,25 @@
+const uploadImage = require("../../utils/uploadImage")
+
 const portfolioResolvers = {
   Query: {
     work: async (_, { _id }, context) => await context.db.collection('portfolio').findOne({_id}),
-    works: (_, __, context) => context.db.collection('portfolio').find().toArray()
+    works: async (_, __, context) => await context.db.collection('portfolio').find().toArray()
   },
   Mutation: {
-    addWork: async (_, { heading, text, photoUrl }, context) => {
+    addWork: async (_, { heading, text, file, stack }, context) => {
+      const { filename, mimetype, encoding, createReadStream } = await file
+      uploadImage(createReadStream, filename)
+      
       const newWork = {
         heading,
         text,
         created: new Date(),
-        photoUrl
+        photo: {
+          filename,
+          mimetype,
+          encoding
+        },
+        stack
       }
 
       const { insertedId } = await context.db.collection('portfolio').insertOne(newWork)
