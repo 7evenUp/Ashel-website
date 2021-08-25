@@ -44,7 +44,15 @@ export default function Portfolio() {
     const onHeadeingChange = evt => setHeading(evt.target.value)
     const onTextChange = evt => setText(evt.target.value)
     const onStackItemChange = evt => setStackItem(evt.target.value)
-    const onStackItemAdd = () => setStack([...stack, stackItem])
+    const onStackItemAdd = () => {
+        setStack([...stack, stackItem])
+        setStackItem("")
+    }
+    const onStackItemDelete = (stackItem) => {
+        const index = stack.indexOf(stackItem)
+        
+        setStack([...stack.slice(undefined, index), ...stack.slice(index + 1)])
+    }
     const OnFileChange = evt => setImage(evt.target.files[0])
     const onSubmit = () => {
         mutate({variables: {
@@ -64,8 +72,25 @@ export default function Portfolio() {
 
           <fieldset className={styles.fieldset}>
             <label className={styles.label} htmlFor="stackItem">Стэк технологий</label>
-            <input className={styles.input} id="stackItem" type="text" value={stackItem} onChange={onStackItemChange}/>
-            <button type="button" onClick={onStackItemAdd} disabled={stackItem.length ? false : true}>Добавить</button>
+            <input
+                className={styles.input}
+                id="stackItem"
+                type="text"
+                value={stackItem}
+                onChange={onStackItemChange}/>
+            <div className={styles.stack_list}>
+                {stack.map(stackItem => (
+                    <span
+                        key={stackItem}
+                        onClick={() => onStackItemDelete(stackItem)}
+                        className={styles.stack_item}>{stackItem}</span>
+                ))}
+            </div>
+            <button
+                className={`${styles.button} ${styles.button_small}`}
+                type="button"
+                onClick={onStackItemAdd}
+                disabled={stackItem.length ? false : true}>Добавить</button>
           </fieldset>
             
           <fieldset className={styles.fieldset}>
