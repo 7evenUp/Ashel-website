@@ -7,6 +7,7 @@ const portfolioResolvers = {
   },
   Mutation: {
     addWork: async (_, { heading, text, file, stack }, context) => {
+      console.log('i am here')
       const { filename, mimetype, encoding, createReadStream } = await file
       uploadImage(createReadStream, filename)
       

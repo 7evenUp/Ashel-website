@@ -5,16 +5,12 @@ import { useMutation, gql } from '@apollo/client'
 import styles from './Portfolio.module.css'
 
 const MUTATION = gql`
-  mutation(
-      $heading: String!,
-      $text: String!,
-      $file: Upload!,
-      $stack: [String!]!) {
+  mutation($heading: String!, $text: String!, $file: Upload!, $stack: [String!]!) {
     addWork(
         heading: $heading,
         text: $text,
         file: $file,
-        filter: $filter
+        stack: $stack
     ) {
       code
       work {
@@ -55,6 +51,9 @@ export default function Portfolio() {
     }
     const OnFileChange = evt => setImage(evt.target.files[0])
     const onSubmit = () => {
+      console.log(heading)
+      console.log(text)
+      console.log(stack)
         mutate({variables: {
             heading,
             text,
@@ -95,7 +94,7 @@ export default function Portfolio() {
             
           <fieldset className={styles.fieldset}>
             <label className={styles.label} htmlFor="text">Содержимое</label>
-            <textarea className={styles.textarea} id="text" value={text} onChange={onTextChange}></textarea>
+            <textarea className={styles.textarea} id="text" value={text} onChange={onTextChange} />
           </fieldset>
             
           <fieldset className={styles.fieldset}>
