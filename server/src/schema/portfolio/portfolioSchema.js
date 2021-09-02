@@ -20,7 +20,7 @@ const portfolioTypeDefs = gql`
 
   type Query {
     works: [Work!]!
-    work(_id: ID): Work!
+    work(_id: ID!): Work!
   }
 
   type Mutation {
