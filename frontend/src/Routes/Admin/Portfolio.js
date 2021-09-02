@@ -34,7 +34,7 @@ export default function Portfolio() {
     if (loading) return <p>Loading...</p>
     if (error) {
         console.log(error)
-        return <p>Error :(</p>
+        return <p>Error :( {error}</p>
     }
 
     const onHeadeingChange = evt => setHeading(evt.target.value)
@@ -51,9 +51,6 @@ export default function Portfolio() {
     }
     const OnFileChange = evt => setImage(evt.target.files[0])
     const onSubmit = () => {
-      console.log(heading)
-      console.log(text)
-      console.log(stack)
         mutate({variables: {
             heading,
             text,

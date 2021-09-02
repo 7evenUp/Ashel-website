@@ -45,16 +45,17 @@
 }
 
 .card__button {
-  padding: 8px 32px;
+  padding: 8px 24px;
   color: black;
   font-size: 18px;
   background-color: rgba(250,228,32, .8);
   border: 2px solid #FAE420;
-  border-radius: 25px;
+  border-radius: 15px;
   margin-top: auto;
   width: max-content;
   cursor: pointer;
   transition: all .35s ease-in;
+  text-decoration: none;
 }
 
 .card__button:hover {
