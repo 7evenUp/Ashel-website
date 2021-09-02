@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoLogoVk, IoLogoInstagram, IoLogoTwitter, IoLogoYoutube, IoLogoGithub, IoMail  } from 'react-icons/io5'
 import styles from './About.module.css'
-import MyImage from '../../img/man.jpg'
+import MyImage from '../../img/me.jpg'
 
 const About = () => {
   return (
