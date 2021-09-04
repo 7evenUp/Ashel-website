@@ -1,10 +1,11 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
 import { useParams, useHistory } from 'react-router-dom'
-import styles from './PortfilioItem.module.css'
 
-const GET_PORTFOLIO_ITEM = gql`
-  query GetPortfolioItem($_id: ID!) {
+import styles from './BlogItem.module.css'
+
+const GET_BLOG_ITEM = gql`
+  query GetBlogItem($_id: ID!) {
     work(_id: $_id) {
       _id
       heading
@@ -18,12 +19,12 @@ const GET_PORTFOLIO_ITEM = gql`
   }
 `
 
-const PortfolioItem = () => {
-    const { id } = useParams()
+const BlogItem = () => {
+    const { postId } = useParams()
     const history = useHistory()
 
-    const { loading, error, data } = useQuery(GET_PORTFOLIO_ITEM, {
-        variables: { _id: id }
+    const { loading, error, data } = useQuery(GET_BLOG_ITEM, {
+      variables: { _id: postId }
     })
 
     if (loading) return 'Loading...'
@@ -65,4 +66,4 @@ const PortfolioItem = () => {
     )
 }
 
-export default PortfolioItem
+export default BlogItem

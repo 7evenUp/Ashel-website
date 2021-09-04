@@ -22,7 +22,7 @@ const postsTypeDefs = gql`
 
   type Query {
     posts: [Post!]!
-    post(_id: ID): Post!
+    post(_id: ID!): Post!
   }
 
   type Mutation {

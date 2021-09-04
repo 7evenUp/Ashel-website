@@ -1,7 +1,11 @@
 import React from 'react'
+import { Link, useRouteMatch } from 'react-router-dom'
+
 import styles from './Post.module.css'
 
-const Post = ({ heading, text, src, created, filter }) => {
+const Post = ({ heading, text, src, id }) => {
+  const match = useRouteMatch()
+
   return (
     <div className={`${styles.post} card`}>
       <div style={{marginRight: 'auto'}}>
@@ -11,7 +15,7 @@ const Post = ({ heading, text, src, created, filter }) => {
       <div className={styles.br}></div>
       <div className={styles.right}>
         <img src={src} alt="img" className={styles.img}/>
-        <button type="button" className={styles.button}>Подробнее</button>
+        <Link to={`${match.url}/${id}`} type="button" className={styles.button}>Подробнее</Link>
       </div>
     </div>
   )

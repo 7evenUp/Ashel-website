@@ -29,6 +29,7 @@ const Posts = () => {
         data.posts.map(el => (
           <Post
             key={el._id}
+            id={el._id}
             src={`http://localhost:4000/static/img/${el.photo.filename}`}
             created={el.created}
             filter={el.filter}

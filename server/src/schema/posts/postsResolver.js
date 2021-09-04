@@ -1,8 +1,9 @@
+const { ObjectId } = require('mongodb')
 const uploadImage = require("../../utils/uploadImage")
 
 const postsResolver = {
   Query: {
-    post: async (_, { _id }, context) => await context.db.collection('posts').findOne({_id}),
+    post: async (_, { _id }, context) => await context.db.collection('posts').findOne({_id: ObjectId(_id)}),
     posts: (_, __, context) => context.db.collection('posts').find().toArray()
   },
   Mutation: {

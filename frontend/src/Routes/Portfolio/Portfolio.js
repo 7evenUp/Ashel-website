@@ -24,7 +24,7 @@ const GET_PORTFOLIO = gql`
 `
 
 const Portfolio = () => {
-  let match = useRouteMatch();
+  let match = useRouteMatch()
   const { loading, error, data } = useQuery(GET_PORTFOLIO)
 
   if (error) return `Error! ${error.message}`
