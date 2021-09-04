@@ -4,7 +4,7 @@ import styles from './Post.module.css'
 const Post = ({ heading, text, src, created, filter }) => {
   return (
     <div className={`${styles.post} card`}>
-      <div>
+      <div style={{marginRight: 'auto'}}>
         <h2 className={styles.heading}>{heading}</h2>
         <p className={styles.paragraph}>{text}</p>
       </div>
