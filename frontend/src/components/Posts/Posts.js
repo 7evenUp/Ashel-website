@@ -20,21 +20,23 @@ const GET_POSTS = gql`
 
 const Posts = () => {
   const { loading, error, data } = useQuery(GET_POSTS)
-
-  if (loading) return 'Loading...'
+  
   if (error) return `Error! ${error.message}`
 
   return (
     <div className={styles.posts}>
-      {data.posts.map(el => (
-        <Post
-          key={el._id}
-          src={`http://localhost:4000/static/img/${el.photo.filename}`}
-          created={el.created}
-          filter={el.filter}
-          heading={el.heading}
-          text={el.text} />
-      ))}
+      { loading ? 'Loading ...' : 
+        data.posts.map(el => (
+          <Post
+            key={el._id}
+            src={`http://localhost:4000/static/img/${el.photo.filename}`}
+            created={el.created}
+            filter={el.filter}
+            heading={el.heading}
+            text={el.text} />
+        ))
+      }
+      
     </div>
   )
 }
