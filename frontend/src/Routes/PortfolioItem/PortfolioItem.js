@@ -6,7 +6,6 @@ import styles from './PortfilioItem.module.css'
 const GET_PORTFOLIO_ITEM = gql`
   query GetPortfolioItem($_id: ID!) {
     work(_id: $_id) {
-      _id
       heading
       text
       photo {
@@ -29,7 +28,7 @@ const PortfolioItem = () => {
     if (loading) return 'Loading...'
     if (error) return `Error! ${error.message}`
 
-    const { photo, heading, text, _id, stack, created } = data.work
+    const { photo, heading, text, stack, created } = data.work
     const date = new Date(created).toLocaleDateString()
 
     return (

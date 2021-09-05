@@ -6,14 +6,12 @@ import styles from './BlogItem.module.css'
 
 const GET_BLOG_ITEM = gql`
   query GetBlogItem($_id: ID!) {
-    work(_id: $_id) {
-      _id
+    post(_id: $_id) {
       heading
       text
       photo {
         filename
       }
-      stack
       created
     }
   }
@@ -30,39 +28,30 @@ const BlogItem = () => {
     if (loading) return 'Loading...'
     if (error) return `Error! ${error.message}`
 
-    const { photo, heading, text, _id, stack, created } = data.work
+    const { photo, heading, text, created } = data.post
     const date = new Date(created).toLocaleDateString()
 
     return (
-      <>
+      <article className={styles.article}>
         <button
           className={styles.button}
           type="button"
-          onClick={() => history.goBack()}>Назад к работам
+          onClick={() => history.goBack()}>Назад
         </button>
         <div className={styles.top_info}>
+          <div style={{display: 'flex', alignItems: 'baseline', gap: 32}}>
+            <h2 className={styles.heading}>{heading}</h2>
+            <span className={styles.date}>{date}</span>
+          </div>
+          
           <img
             className={styles.img}
             src={`http://localhost:4000/static/img/${photo.filename}`}/>
-          <div className={styles.right_info}>
-            <div>
-              <h3 className={styles.heading}>{heading}</h3>
-              <span className={styles.date}>{date}</span>
-            </div>
-            <div className={styles.stack}>
-              <span className={styles.stack_heading}>Стек технологий:</span>
-              <div className={styles.stack_list}>
-              {stack.map(stackItem => (
-                <span className={styles.stack_item} key={stackItem}>{stackItem}</span>
-              ))}
-              </div>
-            </div>
-          </div>
         </div>
         <div className={styles.bottom_info}>
           <p className={styles.text}>{text}</p>
         </div>
-      </>
+      </article>
     )
 }
 
