@@ -1,4 +1,5 @@
 const { ObjectId } = require('mongodb')
+const path = require("path")
 const uploadImage = require("../../utils/uploadImage")
 
 const portfolioResolvers = {
@@ -9,14 +10,14 @@ const portfolioResolvers = {
   Mutation: {
     addWork: async (_, { heading, text, file, stack }, context) => {
       const { filename, mimetype, encoding, createReadStream } = await file
-      uploadImage(createReadStream, filename)
+      uploadImage(createReadStream, filename, 'portfolio')
       
       const newWork = {
         heading,
         text,
         created: new Date(),
         photo: {
-          filename,
+          filename: path.join('portfolio', filename),
           mimetype,
           encoding
         },
