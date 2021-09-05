@@ -1,5 +1,4 @@
 const { ObjectId } = require('mongodb')
-const path = require('path')
 const uploadImage = require('../../utils/uploadImage')
 
 const galleryResolver = {
@@ -18,7 +17,7 @@ const galleryResolver = {
       const newGalleryItem = {
         filter,
         photo: {
-          filename: path.join('gallery', filename),
+          filename: 'gallery/' + filename,
           mimetype,
           encoding,
         },

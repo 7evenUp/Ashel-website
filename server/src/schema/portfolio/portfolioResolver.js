@@ -1,5 +1,4 @@
 const { ObjectId } = require('mongodb')
-const path = require("path")
 const uploadImage = require("../../utils/uploadImage")
 
 const portfolioResolvers = {
@@ -17,7 +16,7 @@ const portfolioResolvers = {
         text,
         created: new Date(),
         photo: {
-          filename: path.join('portfolio', filename),
+          filename: 'portfolio/' + filename,
           mimetype,
           encoding
         },

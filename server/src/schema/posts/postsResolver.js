@@ -1,5 +1,4 @@
 const { ObjectId } = require('mongodb')
-const path = require('path')
 const uploadImage = require("../../utils/uploadImage")
 
 const postsResolver = {
@@ -18,7 +17,7 @@ const postsResolver = {
         filter,
         created: new Date(),
         photo: {
-          filename: path.join('blog', filename),
+          filename: 'blog/' + filename,
           mimetype,
           encoding
         }
