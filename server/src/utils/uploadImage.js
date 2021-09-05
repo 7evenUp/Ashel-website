@@ -10,6 +10,8 @@ const uploadImage = (createReadStream, filename, folder) => {
   const readStream = createReadStream()
 
   readStream.pipe(writeableStream)
+
+  return filename
 }
 
 module.exports = uploadImage

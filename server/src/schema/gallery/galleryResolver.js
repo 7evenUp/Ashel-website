@@ -12,12 +12,12 @@ const galleryResolver = {
   Mutation: {
     addGalleryItem: async (_, { filter, file }, context) => {
       const { filename, mimetype, encoding, createReadStream } = await file
-      uploadImage(createReadStream, filename, 'gallery')      
+      const newFilename = uploadImage(createReadStream, filename, 'gallery')      
 
       const newGalleryItem = {
         filter,
         photo: {
-          filename: 'gallery/' + filename,
+          filename: 'gallery/' + newFilename,
           mimetype,
           encoding,
         },

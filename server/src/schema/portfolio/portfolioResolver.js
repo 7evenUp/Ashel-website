@@ -9,14 +9,14 @@ const portfolioResolvers = {
   Mutation: {
     addWork: async (_, { heading, text, file, stack }, context) => {
       const { filename, mimetype, encoding, createReadStream } = await file
-      uploadImage(createReadStream, filename, 'portfolio')
+      const newFilename = uploadImage(createReadStream, filename, 'portfolio')
       
       const newWork = {
         heading,
         text,
         created: new Date(),
         photo: {
-          filename: 'portfolio/' + filename,
+          filename: 'portfolio/' + newFilename,
           mimetype,
           encoding
         },

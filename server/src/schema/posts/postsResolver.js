@@ -9,7 +9,7 @@ const postsResolver = {
   Mutation: {
     addPost: async (_, { heading, text, file, filter }, context) => {
       const { filename, mimetype, encoding, createReadStream } = await file
-      uploadImage(createReadStream, filename, 'blog')
+      const newFilename = uploadImage(createReadStream, filename, 'blog')
 
       const newPost = {
         heading,
@@ -17,7 +17,7 @@ const postsResolver = {
         filter,
         created: new Date(),
         photo: {
-          filename: 'blog/' + filename,
+          filename: 'blog/' + newFilename,
           mimetype,
           encoding
         }
