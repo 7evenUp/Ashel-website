@@ -30,12 +30,12 @@ const About = () => {
           <div className="card">
             <h2 className={styles.card_heading}>Мои контакты</h2>
             <ul className={styles.contacts_list}>
-              <li><a href="https://vk.com/aptem_oxa"><IoLogoVk /> Вконтакте</a></li>
-              <li><a href="https://www.instagram.com/7_even_up/"><IoLogoInstagram /> Instagram</a></li>
-              <li><a href="https://www.youtube.com/channel/UChojN6dPfAgXI88-27ey8AQ"><IoLogoYoutube /> Youtube</a></li>
-              <li><a href="https://twitter.com/_7even_up_"><IoLogoTwitter /> Twitter</a></li>
-              <li><a href="https://github.com/7evenUp"><IoLogoGithub /> Github</a></li>
-              <li><a href="mailto:sheludeshev.artyom@mail.ru"><IoMail /> Email</a></li>
+              <li><a className={styles.contacts_item} href="https://vk.com/aptem_oxa" target="blank"><IoLogoVk size={32}/> Вконтакте</a></li>
+              <li><a className={styles.contacts_item} href="https://www.instagram.com/7_even_up/" target="blank"><IoLogoInstagram size={32} /> Instagram</a></li>
+              <li><a className={styles.contacts_item} href="https://www.youtube.com/channel/UChojN6dPfAgXI88-27ey8AQ" target="blank"><IoLogoYoutube size={32} /> Youtube</a></li>
+              <li><a className={styles.contacts_item} href="https://twitter.com/_7even_up_" target="blank"><IoLogoTwitter size={32} /> Twitter</a></li>
+              <li><a className={styles.contacts_item} href="https://github.com/7evenUp" target="blank"><IoLogoGithub size={32} /> Github</a></li>
+              <li><a className={styles.contacts_item} href="mailto:sheludeshev.artyom@mail.ru" target="blank"><IoMail size={32} /> Email</a></li>
             </ul>
           </div>
         </div>

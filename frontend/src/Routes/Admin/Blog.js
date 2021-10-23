@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-
 import { useMutation, gql } from '@apollo/client'
-
+import { TextEditor, ToolPanel, TextEditorProvider } from './TextEditor'
 import styles from './Blog.module.css'
 
 const MUTATION = gql`
@@ -36,7 +35,7 @@ export default function Blog() {
         return <p>Error :(</p>
     }
 
-    const onHeadeingChange = evt => setHeading(evt.target.value)
+    const onHeadingChange = evt => setHeading(evt.target.value)
     const onTextChange = evt => setText(evt.target.value)
     const onFilterChange = evt => setFilter(evt.target.value)
     const OnFileChange = evt => setImage(evt.target.files[0])
@@ -53,12 +52,19 @@ export default function Blog() {
         <form className={styles.form}>
           <fieldset className={styles.fieldset}>
             <label className={styles.label} htmlFor="heading">Заголовок</label>
-            <input className={styles.input} id="heading" type="text" value={heading} onChange={onHeadeingChange}/>
+            <input className={styles.input} id="heading" type="text" value={heading} onChange={onHeadingChange}/>
           </fieldset>
             
           <fieldset className={styles.fieldset}>
             <label className={styles.label} htmlFor="text">Содержимое</label>
             <textarea className={styles.textarea} id="text" value={text} onChange={onTextChange}></textarea>
+          </fieldset>
+
+          <fieldset className={styles.fieldset}>
+            <TextEditorProvider >
+              <ToolPanel />
+              <TextEditor />
+            </TextEditorProvider>
           </fieldset>
 
           <fieldset className={styles.fieldset}>
