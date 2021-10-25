@@ -41,7 +41,8 @@ const PortfolioItem = () => {
         <div className={styles.top_info}>
           <img
             className={styles.img}
-            src={`http://localhost:4000/static/img/${photo.filename}`}/>
+            src={`http://localhost:4000/static/img/${photo.filename}`}
+            alt="portfolio-item"/>
           <div className={styles.right_info}>
             <div>
               <h3 className={styles.heading}>{heading}</h3>

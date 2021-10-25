@@ -46,7 +46,8 @@ const BlogItem = () => {
           
           <img
             className={styles.img}
-            src={`http://localhost:4000/static/img/${photo.filename}`}/>
+            src={`http://localhost:4000/static/img/${photo.filename}`}
+            alt="blog-item"/>
         </div>
         <div className={styles.bottom_info}>
           <p className={styles.text}>{text}</p>

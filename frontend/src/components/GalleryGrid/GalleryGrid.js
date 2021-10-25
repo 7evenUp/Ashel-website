@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PhotoItem from '../PhotoItem/PhotoItem'
 import { gql, useQuery, useReactiveVar } from '@apollo/client'
 import styles from './GalleryGrid.module.css'

@@ -8,7 +8,7 @@ const TextEditor = () => {
   return (
     <div>
       <Editor
-        placeholder="Введите ваш текст"
+        placeholder="Кастомное содержание"
         editorState={state}
         onChange={onChange}
       />
